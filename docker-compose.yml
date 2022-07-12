@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+ httpd:
+  image: httpd
+  ports:
+    - "8000:80"
+
+ nginx:
+  image: nginx
+  ports:
+    - "8001:80"
+
+ angular:
+   image: bvsaikiran/ang
+   ports:
+    - "8002:80"  
+     
+ java:
+  build: /home/ec2-user/JavaWebCalculator
+  ports:
+   - "8003:8080"   
