@@ -1,0 +1,10 @@
+FROM node:14 AS calc
+RUN mkdir /webapp
+WORKDIR /webapp
+COPY . .
+RUN npm install
+RUN npm install -g @angular/cli
+RUN ng build
+
+FROM httpd
+COPY --from=calc /webapp/dist/angularCalc /usr/local/apache2/htdocs
